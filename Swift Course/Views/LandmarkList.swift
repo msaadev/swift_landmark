@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    private let adViewControllerRepresentable = AdViewControllerRepresentable()
+    private let adCoordinator = AdCoordinator()
+    
+    init()  {
+        adCoordinator.loadAdAndWatch(from: adViewControllerRepresentable.viewController )
+    }
+    
     var body: some View {
         NavigationView {
             List (landmarks) { landmark in
-                NavigationLink{
+                NavigationLink {
                     LandmarkDetail(landmark: landmark)
                 } label: {
                     LandmarkRow(landMark: landmark)
@@ -19,10 +26,14 @@ struct LandmarkList: View {
             }
             .navigationTitle("Landmarks")
         }
+        .background{
+            adViewControllerRepresentable.frame(width: .zero,height: .zero)
+            
+        }
         
-       
+        
     }
-        
+    
 }
 
 struct LandmarkList_Previews: PreviewProvider {

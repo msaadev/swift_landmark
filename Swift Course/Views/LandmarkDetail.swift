@@ -18,17 +18,17 @@ struct LandmarkDetail: View {
             CircleImage(image :landmark.image)
                 .offset(y:-130)
                 .padding(.bottom , -130)
-               
+            
             
             VStack(alignment: .leading) {
                 Text(landmark.name)
                     .font(.title)
                 HStack {
                     Text(landmark.park)
-                        
+                    
                     Spacer()
                     Text(landmark.state)
-                        
+                    
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
